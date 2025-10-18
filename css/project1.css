@@ -1,21 +1,61 @@
-/* Project 1 — Cyber Blue theme (variable overrides only) */
-:root{
-  --bg: #0b132b;
-  --panel: #0f2038;
-  --accent: #0096c9; /* blue accent */
-  --secondary: #4bcffa;
-  --text: #f0f0f0;
-  --muted: #9fbfdc;
-  --footer-bg: rgba(5,14,28,0.95);
+/* Project 1 — Cyber Blue Theme (Detailed) */
+:root {
+  --bg-dark: #0b132b;
+  --panel-dark: #0f2038;
+  --accent: #0096c9;
+  --text-light: #f0f8ff;
+  --text-medium: #9fbfdc;
+  --border-color: rgba(0, 150, 201, 0.2);
 }
 
-/* small, theme-specific gallery tweak (kept minimal) */
-.gallery { gap: 14px; }
+/* === Các style chi tiết cho trang Dự án 1 === */
 
-/* Footer tweak for project theme */
-footer { background: linear-gradient(180deg, rgba(5,14,28,0.96), rgba(3,8,18,0.98)); }
+/* Hiệu ứng nền lưới kỹ thuật số */
+.project-page {
+  background-image:
+    linear-gradient(rgba(0, 150, 201, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 150, 201, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
 
-/* Project hero refinement */
-.project-hero { box-shadow: 0 8px 28px rgba(2,8,23,0.45); border-radius: 12px; padding: 20px; }
+/* Kiểu dáng cho phần hero banner */
+.project-hero {
+  background: linear-gradient(135deg, var(--panel-dark), var(--bg-dark));
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(0, 150, 201, 0.1);
+  text-align: center;
+}
 
-/* ...no layout duplication — main.css contains layout/spacing/animations... */
+.project-hero h1 {
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(0, 150, 201, 0.5);
+}
+
+/* Thư viện ảnh với hiệu ứng hover */
+.gallery img {
+  border-radius: var(--radius);
+  border: 2px solid transparent;
+  transition: var(--transition);
+  filter: saturate(0.8);
+}
+
+.gallery img:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 15px rgba(0, 150, 201, 0.3);
+  filter: saturate(1);
+}
+
+/* Nút bấm và liên kết trong trang */
+.project-details a {
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.project-details a:hover {
+  color: var(--text-light);
+  text-shadow: 0 0 5px var(--accent);
+}
+
