@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>My Portfolio — Tran Huynh Giac - BiTrux</title>
+  <meta name="description" content="Portfolio of LOQ — web developer and designer. Showcasing projects, skills, and ways to get in touch.">
+  <meta name="keywords" content="portfolio, web developer, UI, UX, JavaScript, HTML, CSS, projects">
+  <meta name="author" content="LOQ">
+  <meta name="theme-color" content="#0b132b">
+  <!-- preload main stylesheet for faster render -->
+  <link rel="preload" href="css/main.css" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Open Graph / Social Preview -->
+  <meta property="og:title" content="My Portfolio — LOQ">
+  <meta property="og:description" content="Portfolio of LOQ — web developer and designer. Explore projects, case studies and contact info.">
+  <meta property="og:image" content="https://yourdomain.com/images/og-image.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="My Portfolio — LOQ">
+  <meta name="twitter:description" content="Portfolio of LOQ — web developer and designer. Explore projects, case studies and contact info.">
+  <meta name="twitter:image" content="https://yourdomain.com/images/og-image.jpg">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "name": "LOQ",
+        "url": "https://yourdomain.com/",
+        "image": "https://yourdomain.com/images/og-image.jpg",
+        "jobTitle": "Web Developer",
+        "description": "Portfolio of LOQ — web developer and designer. Showcasing projects, skills, and ways to get in touch.",
+        "sameAs": [
+          "https://github.com/yourusername",
+          "https://www.linkedin.com/in/yourprofile"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "My Portfolio — LOQ",
+        "url": "https://yourdomain.com/",
+        "description": "Portfolio of LOQ — web developer and designer. Explore projects, case studies and contact info.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "LOQ",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://yourdomain.com/images/og-image.jpg"
+          }
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Favicon (replace with your favicon file) -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body data-theme="dark">
+  <!-- Mobile Header -->
+  <header>
+    <h2>My Portfolio</h2>
+    <button class="menu-toggle" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation menu" type="button">&#9776;</button>
+  </header>
+
+  <!-- Navigation -->
+  <nav id="sidebar" role="navigation" aria-label="Main navigation">
+    <ul>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <main role="main">
+      <section id="about" class="reveal">
+        <h1>About Me</h1>
+        <p>Hi, I’m Trần Huỳnh Giác, a passionate second-year student at FPT University Cần Thơ, majoring in Information Technology.
+I have a strong interest in web development, UI/UX design, and software engineering, where I enjoy turning creative ideas into functional and visually appealing digital experiences.
+
+Driven by curiosity and continuous learning, I constantly seek to improve my skills in HTML, CSS, JavaScript, and modern frameworks. I’m also exploring backend technologies to build full-stack applications that are both efficient and user-friendly.
+
+Beyond coding, I value teamwork, clear communication, and a problem-solving mindset — qualities that help me thrive in both academic projects and personal pursuits. My goal is to become a well-rounded developer who can create technology that truly makes life easier and more connected.</p>
+      </section>
+
+      <section id="projects" class="reveal">
+        <h1>Projects</h1>
+        <p>Overview of key works and achievements.</p>
+        <!-- Carousel -->
+        <div class="carousel" aria-roledescription="carousel">
+          <div class="carousel-track">
+            <div class="slide" role="group" aria-label="Project 1">
+              <a href="project1.html" class="slide-link" aria-label="Open Project 1 details">
+                <img class="slide-media" src="images/P1-1.jpg" alt="Project 1 screenshot" loading="lazy" decoding="async" width="480" height="300" />
+                <div class="slide-content">
+                  <h3>Project 1</h3>
+                  <p class="project-desc">Responsive web app with interactive UI &amp; data visualizations.</p>
+                  <span class="view-btn" role="presentation">View Details</span>
+                </div>
+              </a>
+            </div>
+            <div class="slide" role="group" aria-label="Project 2">
+              <a href="project2.html" class="slide-link" aria-label="Open Project 2 details">
+                <img class="slide-media" src="images/P2-1.jpg" alt="Project 2 screenshot" loading="lazy" decoding="async" width="480" height="300" />
+                <div class="slide-content">
+                  <h3>Project 2</h3>
+                  <p class="project-desc">CMS-style project demonstrating API integration and auth.</p>
+                  <span class="view-btn" role="presentation">View Details</span>
+                </div>
+              </a>
+            </div>
+            <div class="slide" role="group" aria-label="Project 3">
+              <a href="project3.html" class="slide-link" aria-label="Open Project 3 details">
+                <img class="slide-media" src="images/P3-1.jpg" alt="Project 3 illustration" loading="lazy" decoding="async" width="480" height="300" />
+                <div class="slide-content">
+                  <h3>Project 3</h3>
+                  <p class="project-desc">Design-focused case study with prototypes &amp; usability improvements.</p>
+                  <span class="view-btn" role="presentation">View Details</span>
+                </div>
+              </a>
+            </div>
+          </div>
+          <button type="button" class="carousel-nav prev" aria-label="Previous slide">‹</button>
+          <button type="button" class="carousel-nav next" aria-label="Next slide">›</button>
+          <div class="carousel-dots" role="tablist" aria-label="Project slides"></div>
+        </div>
+      </section>
+
+      <section id="skills" class="reveal">
+        <h1>Skills</h1>
+        <p>Core Skills
+
+Web Development: HTML5, CSS3, JavaScript (ES6+)
+
+Responsive & Interactive UI Design
+
+Front-end Frameworks & Libraries: (React, Vue, Tailwind CSS – if applicable)
+
+Version Control: Git & GitHub
+
+UX/UI Design Principles
+
+Accessibility & Semantic HTML
+
+Cross-browser Compatibility
+
+Tools & Technologies
+
+Code Editors: VS Code, Sublime Text
+
+Design & Prototyping: Figma, Adobe XD
+
+Dev Tools: Chrome DevTools, Lighthouse
+
+API Integration & RESTful Services
+
+Basic knowledge of Node.js & backend interaction
+
+Soft Skills
+
+Problem Solving & Critical Thinking
+
+Collaboration & Teamwork
+
+Agile & Iterative Development
+
+Attention to Detail & Quality-focused.</p>
+      </section>
+
+      <section id="contact" class="reveal">
+        <h1>Contact</h1>
+        <!-- Map: change the query (Hanoi, Vietnam) to your city/school if desired -->
+        <div class="map-wrapper" role="region" aria-label="Location map">
+          <iframe
+            src="https://www.google.com/maps?q=CanTho,+Vietnam&output=embed"
+            title="Map showing Hanoi, Vietnam"
+            aria-label="Map showing Hanoi, Vietnam"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+          <p class="map-link">
+            <a href="https://www.google.com/maps?q=Hanoi,+Vietnam" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+          </p>
+        </div>
+
+        <form action="#" method="post" aria-label="Contact form">
+          <label class="sr-only" for="contact-name">Your Name</label>
+          <input id="contact-name" name="name" type="text" placeholder="Your Name" aria-label="Your name">
+
+          <label class="sr-only" for="contact-email">Your Email</label>
+          <input id="contact-email" name="email" type="email" placeholder="Your Email" aria-label="Your email">
+
+          <label class="sr-only" for="contact-message">Your Message</label>
+          <textarea id="contact-message" name="message" rows="4" placeholder="Your Message" aria-label="Your message"></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+        <p>Email: tranhuynhgiac2006@gmail.com | Phone: 03497473117 | Facebook: Tran Huynh Giac</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/main.js" defer></script>
+  <!-- inline script removed — functionality provided by js/main.js -->
+
+  <!-- Footer -->
+  <footer>
+    <div class="social-links">
+      <a href="#" aria-label="LinkedIn">🔗</a>
+      <a href="#" aria-label="GitHub">💻</a>
+      <a href="#" aria-label="Email">✉️</a>
+    </div>
+    <p>&copy; 2025 My Portfolio | Designed with ❤️</p>
+  </footer>
+</body>
+</html>

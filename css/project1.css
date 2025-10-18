@@ -1,0 +1,21 @@
+/* Project 1 — Cyber Blue theme (variable overrides only) */
+:root{
+  --bg: #0b132b;
+  --panel: #0f2038;
+  --accent: #0096c9; /* blue accent */
+  --secondary: #4bcffa;
+  --text: #f0f0f0;
+  --muted: #9fbfdc;
+  --footer-bg: rgba(5,14,28,0.95);
+}
+
+/* small, theme-specific gallery tweak (kept minimal) */
+.gallery { gap: 14px; }
+
+/* Footer tweak for project theme */
+footer { background: linear-gradient(180deg, rgba(5,14,28,0.96), rgba(3,8,18,0.98)); }
+
+/* Project hero refinement */
+.project-hero { box-shadow: 0 8px 28px rgba(2,8,23,0.45); border-radius: 12px; padding: 20px; }
+
+/* ...no layout duplication — main.css contains layout/spacing/animations... */

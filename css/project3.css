@@ -1,0 +1,76 @@
+/* Project 3 — Purple theme (variable overrides only) */
+:root{
+  --bg: #170821;
+  --panel: #241233;
+  --accent: #b57edc; /* purple accent as requested */
+  --secondary: #d9b3ff;
+  --text: #f2f0fb;
+  --muted: #cbbde6;
+  --footer-bg: rgba(18,8,24,0.96);
+}
+
+/* theme-only overrides — layout and animations in main.css */
+
+/* Apply theme */
+body{ background: var(--bg); color: var(--text); }
+
+/* Nav link states */
+nav ul li a { color: var(--accent); }
+nav ul li a:hover, nav ul li a:focus, nav ul li a[aria-current="true"] { color: var(--secondary); }
+
+/* Cards & hover */
+.project-card { background: linear-gradient(180deg, rgba(36,18,51,0.96), rgba(23,8,33,0.92)); border: 1px solid rgba(181,126,220,0.06); }
+.project-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(181,126,220,0.06), 0 6px 18px rgba(0,0,0,0.5); }
+
+/* Buttons */
+.view-btn, .theme-toggle, .back-home-button { background: var(--accent); color: #2e003e; }
+.view-btn:hover, .theme-toggle:hover, .back-home-button:hover { background: var(--secondary); color: #1f0026; transform: translateY(-2px); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 8px; border: 2px solid rgba(0,0,0,0.2); }
+
+/* Footer */
+footer { background: linear-gradient(180deg, rgba(18,8,24,0.96), rgba(12,6,18,0.98)); color: rgba(242,240,251,0.9); box-shadow: 0 -6px 18px rgba(0,0,0,0.4); }
+
+/* Ensure high contrast for logo/text in purple theme */
+.logo, .site-header .logo { color: var(--text); }
+
+/* Reveal */
+.reveal { transition-property: opacity, transform; transition-duration: 520ms; transition-timing-function: cubic-bezier(.2,.9,.3,1); }
+
+/* Small visuals */
+.slide-media { border-radius: 8px; overflow: hidden; }
+
+.project-hero{ background:linear-gradient(90deg,#170821, rgba(8,18,34,0.15)); padding:18px; border-radius:8px }
+.project-details p{ color:#d9b3ff }
+
+/* Project CTA — Purple theme */
+.project-cta {
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 14px;
+  border-radius:10px;
+  background: linear-gradient(90deg, rgba(181,126,220,1), rgba(217,179,255,0.92));
+  color: #2b0736;
+  font-weight:700;
+  text-decoration:none;
+  border: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 10px 30px rgba(181,126,220,0.06), 0 6px 18px rgba(0,0,0,0.35);
+  transition: transform .16s ease, box-shadow .16s ease, filter .12s ease;
+}
+.project-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(181,126,220,0.09);
+}
+.project-cta:active { transform: translateY(-1px); }
+.project-cta:focus-visible { outline: 3px solid rgba(181,126,220,0.9); outline-offset: 3px; }
+
+/* Muted / ghost variant */
+.project-cta.ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(217,179,255,0.12);
+  box-shadow: none;
+}

@@ -1,0 +1,47 @@
+/* Project 2 — Neon Green theme (variable overrides only) */
+:root{
+  --bg: #051e18;
+  --panel: #0a2b22;
+  --accent: #16c79a; /* green accent as requested */
+  --secondary: #66ffcc;
+  --text: #f8f8f8;
+  --muted: #bfeee0;
+  --footer-bg: rgba(2,20,16,0.95);
+}
+
+/* theme-only overrides — layout and animations in main.css */
+
+/* Footer / CTA polish */
+footer { background: linear-gradient(180deg, rgba(2,20,16,0.96), rgba(1,10,12,0.98)); color: var(--text); }
+.cta { display:inline-block; padding:10px 14px; border-radius:10px; background: linear-gradient(90deg,var(--accent),var(--secondary)); color:#02130f; font-weight:700; }
+
+/* Project CTA — Neon Green theme */
+.project-cta {
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 14px;
+  border-radius:10px;
+  background: linear-gradient(90deg, rgba(22,199,154,1), rgba(102,255,204,0.9));
+  color: #02130f;
+  font-weight:800;
+  text-decoration:none;
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 8px 26px rgba(22,199,154,0.08), 0 6px 18px rgba(0,0,0,0.35);
+  transition: transform .14s ease, box-shadow .14s ease, filter .12s ease;
+}
+.project-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(22,199,154,0.12), 0 8px 28px rgba(0,0,0,0.38);
+  filter: saturate(1.05);
+}
+.project-cta:active { transform: translateY(-1px); }
+.project-cta:focus-visible { outline: 3px solid rgba(22,199,154,0.9); outline-offset: 3px; }
+
+/* Subtle neon outline alternative */
+.project-cta.neon-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(22,199,154,0.14);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.28);
+}
