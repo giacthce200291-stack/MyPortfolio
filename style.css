@@ -1,0 +1,375 @@
+/* ==========================================================================
+   style.css — giao diện đơn giản: một cột đọc, chữ rõ ràng, ít hiệu ứng.
+   Màu sáng/tối đổi qua thuộc tính data-theme trên <html>.
+   ========================================================================== */
+
+:root {
+  --bg: #faf8f5;
+  --surface: #f1ede6;
+  --text: #1f2328;
+  --muted: #5b6370;
+  --line: #e2dcd2;
+  --accent: #b4501a;
+  --accent-text: #ffffff;
+
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+
+  --content-width: 720px;
+  --header-width: 960px;
+  --brand-column: 190px;
+  --nav-item-width: 96px;
+  --controls-column: 190px;
+}
+
+[data-theme='dark'] {
+  --bg: #15171b;
+  --surface: #1e2126;
+  --text: #e9e7e3;
+  --muted: #9aa1ac;
+  --line: #2b2f36;
+  --accent: #f19a5b;
+  --accent-text: #15171b;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  line-height: 1.25;
+  margin: 0 0 0.5rem;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.2rem; margin-top: 1.5rem; }
+
+p { margin: 0 0 1rem; }
+
+a { color: var(--accent); text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -60px;
+  padding: 8px 14px;
+  background: var(--accent);
+  color: var(--accent-text);
+  border-radius: 6px;
+  z-index: 100;
+}
+.skip-link:focus { top: 12px; }
+
+/* ---------- Thanh điều hướng ----------
+   Ba cột có độ rộng cố định, mỗi mục menu cũng cố định, nên đổi VI/EN
+   (chữ dài ngắn khác nhau) cũng không làm các nút xê dịch. */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-bar {
+  max-width: var(--header-width);
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: grid;
+  grid-template-columns: var(--brand-column) 1fr var(--controls-column);
+  align-items: center;
+}
+
+.brand {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links a {
+  flex: 0 0 var(--nav-item-width);
+  padding: 6px 0;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 0.95rem;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+.controls {
+  justify-self: end;
+  display: flex;
+  gap: 8px;
+}
+
+.lang-switch {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.lang-switch button {
+  width: 42px;
+  height: 34px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: 600 0.8rem var(--font-body);
+  cursor: pointer;
+}
+
+.lang-switch button[aria-pressed='true'] {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+.theme-toggle {
+  width: 38px;
+  height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+
+/* Biểu tượng sáng/tối vẽ bằng CSS, không cần thư viện icon. */
+.theme-icon::before {
+  content: '\263E'; /* ☾ */
+  font-size: 1.1rem;
+}
+[data-theme='dark'] .theme-icon::before {
+  content: '\2600'; /* ☀ */
+}
+
+/* ---------- Bố cục nội dung ---------- */
+
+main,
+.site-footer {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 150px;
+  gap: 32px;
+  align-items: start;
+  padding: 64px 0 48px;
+}
+
+.hero-greeting {
+  margin: 0;
+  color: var(--muted);
+}
+
+.hero-role {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 1.5rem;
+}
+
+.hero-photo {
+  margin: 0;
+  text-align: center;
+}
+
+.hero-photo img {
+  display: block;
+  width: 150px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+}
+
+.hero-photo figcaption {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.section {
+  padding: 48px 0;
+  border-top: 1px solid var(--line);
+}
+
+.button {
+  display: inline-block;
+  padding: 9px 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  font-weight: 500;
+  text-decoration: none;
+}
+.button:hover { border-color: var(--accent); }
+
+.button-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-text);
+}
+
+/* ---------- Kỹ năng ---------- */
+
+.skill-list { margin: 0; }
+.skill-list > div { margin-bottom: 1rem; }
+.skill-list dt { font-weight: 600; }
+.skill-list dd { margin: 0; color: var(--muted); }
+
+/* ---------- Dự án ---------- */
+
+.project {
+  padding: 24px 0;
+  border-bottom: 1px dashed var(--line);
+}
+.project:last-child { border-bottom: 0; }
+
+.project h3 { margin-top: 0; }
+
+.project-meta {
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.project ul { padding-left: 1.25rem; margin: 0 0 1rem; }
+.project li { margin-bottom: 0.5rem; }
+
+.project-stack {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+.project-stack span { font-weight: 600; color: var(--text); }
+
+/* ---------- Liên hệ ---------- */
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.contact-list li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  padding: 8px 0;
+}
+
+.contact-label {
+  flex: 0 0 96px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.copy-button {
+  padding: 3px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  font: 500 0.82rem var(--font-body);
+  cursor: pointer;
+}
+.copy-button:hover { border-color: var(--accent); color: var(--text); }
+
+.copy-status {
+  min-height: 1.7em;
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+.site-footer {
+  padding-top: 24px;
+  padding-bottom: 40px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- Màn hình nhỏ ---------- */
+
+@media (max-width: 760px) {
+  .header-bar {
+    grid-template-columns: 1fr auto;
+    row-gap: 6px;
+  }
+
+  /* Hàng menu riêng, chia đều 5 mục để vẫn không xê dịch khi đổi ngôn ngữ. */
+  .nav-links {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .nav-links a {
+    flex: 1 1 0;
+    font-size: 0.82rem;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 40px;
+  }
+  .hero-photo { order: -1; text-align: left; }
+  .hero-photo img { width: 110px; }
+
+  h1 { font-size: 2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

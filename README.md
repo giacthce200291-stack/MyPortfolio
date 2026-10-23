@@ -1,51 +1,106 @@
-# My Portfolio — LOQ
+# Trần Huỳnh Giác — Personal Engineering Portfolio
 
-Short overview
-This repository contains a responsive portfolio site (HTML/CSS/JS) showcasing projects, skills and contact information. It includes accessibility improvements, a responsive carousel, reveal-on-scroll animations, a light/dark theme toggle (persisted), and a contact map.
+Trang web portfolio cá nhân chuẩn Minimalist & Human-Centric dành cho Software Engineering Intern (Java Backend), được xây dựng bằng Vanilla Web (HTML5, CSS3, ES6+ JavaScript thuần) với mục tiêu: **nhanh, nhẹ, không phụ thuộc thư viện ngoài và tối ưu trải nghiệm đọc của nhà tuyển dụng**.
 
-Features
-- Responsive layout (mobile-first, sidebar nav on desktop)
-- Accessible navigation and interactive controls (aria attributes, keyboard support)
-- Light/Dark theme toggle persisted in localStorage
-- Reveal-on-scroll animations using IntersectionObserver with stagger
-- Project carousel with arrows, dots and touch swipe
-- Back-to-top button
-- Embedded Google Map (responsive)
+---
 
-Four enhancements included
-1. Theme persistence with OS-pref fallback (localStorage + prefers-color-scheme)
-2. IntersectionObserver-based reveal animations with 150ms stagger
-3. Lazy-loaded images with decoding="async" and width/height to reduce CLS
-4. Carousel with keyboard and touch support
+## 1. Cấu trúc thư mục
 
-Validation proof
-- HTML and CSS were linted and updated for common W3C issues:
-  - form labels, button types, rel="noopener noreferrer" on external links
-  - aria attributes for navigation, controls and landmarks
-- To validate locally:
-  - Use the W3C Validator (https://validator.w3.org/) to check index.html and project pages.
-  - Take a screenshot of the "Document checking completed. No errors or warnings" page and save it as `images/screenshot-w3c-validation.png`.
+```text
+MyPortfolio/
+├── index.html         # Khung HTML5 ngữ nghĩa, hỗ trợ SEO & Accessibility (a11y)
+├── style.css          # Giao diện responsive 1 cột, Dark/Light theme, zero-layout-shift navbar
+├── content.js         # Từ điển dữ liệu đa ngôn ngữ tách rời (Song ngữ VI / EN)
+├── script.js          # Logic Vanilla JS: i18n toggle, theme switch, clipboard copy fallback
+├── .gitignore         # Loại bỏ file rác hệ điều hành và IDE
+├── images/            # Chứa ảnh cá nhân (avatar.png)
+└── README.md          # Tài liệu hướng dẫn sử dụng & triển khai
+```
 
-Responsive design
-- Breakpoints included for mobile and desktop (min-width: 768px) and refinements for very small screens (<375px).
-- All media are responsive (max-width:100%). Carousel and map scale across viewports.
-- To test responsiveness:
-  - Open the site in browser devtools > responsive/mobile toolbar.
-  - Capture screenshots for desktop and mobile and save them as `images/screenshot-home-desktop.png` and `images/screenshot-mobile.png`.
+---
 
-Screenshots to include (replace placeholders)
-- images/screenshot-home-desktop.png — Homepage (desktop)
-- images/screenshot-mobile.png — Mobile layout
-- images/screenshot-w3c-validation.png — W3C validator success screenshot
-- images/screenshot-responsiveness.png — responsiveness test (devtools)
+## 2. Đặc điểm kỹ thuật nổi bật
 
-How to produce final ZIP (Portfolio_Final_[YourName].zip)
-1. Replace placeholder screenshots in `images/` with real PNGs (same filenames above).
-2. Open PowerShell in the project root and run:
-   .\package.ps1 -Name "YourName"
-   This creates Portfolio_Final_YourName.zip containing the project files (index.html, project pages, css/, js/, images/, README.md).
-3. Manually verify the ZIP and upload or submit it.
+1. **Zero Layout Shift (CLS = 0) khi đổi ngôn ngữ:**
+   - Header chia theo grid cố định 3 cột: `brand (190px)`, `nav (flex item cố định 96px/mục)`, `controls (190px)`.
+   - Chuyển đổi qua lại giữa tiếng Việt và tiếng Anh mà không làm nhảy vị trí của bất kỳ nút hay thành phần nào trên thanh điều hướng.
 
-Notes
-- Replace the OG image and the URLs in the JSON-LD in `index.html` with your deployed site URL and image.
-- For image optimization, export screenshots as PNG/WebP and compress using your preferred tool (ImageOptim, Squoosh, etc.).
+2. **Chống nháy giao diện (FOUC Prevention):**
+   - Đọc và thiết lập thuộc tính `data-theme` trực tiếp ngay trong thẻ `<head>` trước khi DOM render.
+
+3. **Tách rời dữ liệu và giao diện (Separation of Concerns):**
+   - Toàn bộ nội dung chữ nằm gọn trong `content.js` với các data attribute `data-i18n`. Khi cần chỉnh sửa nội dung, chỉ cần cập nhật file JavaScript này.
+
+4. **Sao chép thông tin liên hệ an toàn (Fallback Clipboard API):**
+   - Hỗ trợ cả `navigator.clipboard.writeText` và fallback `document.execCommand('copy')` chạy tốt ngay cả trên môi trường `file://` hoặc trình duyệt cũ.
+
+5. **Bộ gõ & Font chuẩn Editorial:**
+   - Headings dùng `Source Serif 4`, nội dung dùng `Inter`, tương phản màu đạt chuẩn WCAG 2.2 AA.
+
+---
+
+## 3. Hướng dẫn chạy thử (Local Development)
+
+### Cách 1: Sử dụng VS Code Live Server
+1. Mở thư mục `MyPortfolio` bằng VS Code.
+2. Cài extension **Live Server** (nếu chưa có).
+3. Nhấp chuột phải vào `index.html` $\rightarrow$ chọn **Open with Live Server**.
+
+### Cách 2: Sử dụng Python
+Mở terminal tại thư mục `MyPortfolio` và gõ:
+```bash
+python -m http.server 8000
+```
+Sau đó truy cập: `http://localhost:8000`
+
+### Cách 3: Mở trực tiếp
+Mở file `index.html` trực tiếp bằng bất kỳ trình duyệt nào (Chrome, Edge, Firefox).
+
+---
+
+## 4. Chuẩn bị ảnh đại diện
+
+Để ảnh hiển thị hoàn hảo nhất:
+1. Tạo thư mục `images` (nếu chưa có).
+2. Đặt file ảnh chân dung của bạn vào `images/avatar.png`.
+
+*Ghi chú: Nếu chưa có file `images/avatar.png`, hệ thống tự động fallback về ảnh mặc định ở thư mục cha.*
+
+---
+
+## 5. Hướng dẫn khởi tạo Git & Commit chuẩn
+
+Để biến thư mục này thành Git repository và commit theo chuẩn **Conventional Commits**:
+
+```bash
+# 1. Di chuyển vào thư mục MyPortfolio
+cd "D:\Workspace\Self_Learning\IT-sensei\build-cv\MyPortfolio"
+
+# 2. Khởi tạo Git
+git init
+
+# 3. Thêm toàn bộ file vào staging
+git add .
+
+# 4. Commit chuẩn Conventional Commits
+git commit -m "feat: initialize personal engineering portfolio website"
+
+# 5. Đổi nhánh mặc định sang main
+git branch -M main
+```
+
+---
+
+## 6. Hướng dẫn đưa lên GitHub Pages (Miễn phí)
+
+1. Tạo một repository mới trên GitHub (ví dụ: `my-portfolio` hoặc `<username>.github.io`).
+2. Liên kết remote và đẩy code:
+   ```bash
+   git remote add origin https://github.com/<your-username>/<repo-name>.git
+   git push -u origin main
+   ```
+3. Truy cập vào **Repository Settings** $\rightarrow$ **Pages**:
+   - Source: Chọn `Deploy from a branch`.
+   - Branch: Chọn `main` / `/(root)`.
+   - Nhấn **Save**.
+4. Website của bạn sẽ hoạt động tại: `https://<your-username>.github.io/<repo-name>/`.

@@ -1,0 +1,25 @@
+# Operating System
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editors & IDEs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Node / Package managers (dự phòng nếu sau này dùng tool)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build & Temporary files
+dist/
+build/
+.cache/
+*.tmp
