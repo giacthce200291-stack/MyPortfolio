@@ -23,3 +23,5 @@ dist/
 build/
 .cache/
 *.tmp
+*.bat
+*.ps1
